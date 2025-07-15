@@ -1,0 +1,233 @@
+ body {
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.nav-btn {
+  background-color: #03045E;
+  color: white;
+  border: none;
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#nav {
+  background-color: #00B4D8;
+  padding: 1rem;
+}
+
+#content {
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: rgb(0, 0, 139);
+  margin-top: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: rgb(0, 180, 216);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  color: rgb(96, 96, 96);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 1.5rem auto;
+  padding: 0 1rem;
+}
+
+/* По умолчанию — только если нужно */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+ object-fit: cover;
+}
+
+/* Карточка автомобиля */
+.div1 {
+  width: 300px;
+  min-height: 320px;
+  background-color: white;
+  border: 2px solid darkblue;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.div1:hover {
+  transform: scale(1.02);
+}
+
+.div1 h2 {
+  font-size: 1.2rem;
+  color: #00b4d8;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.div1 img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Галерея */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Поисковое поле */
+#searchInput {
+  padding: 12px 16px;
+  margin: 30px auto 40px auto;
+  width: 280px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: 0.3s ease;
+  display: block;
+}
+
+#searchInput:focus {
+  border-color: #00b4d8;
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+}
+
+/* Разделитель */
+hr {
+  width: 80%;
+  border: none;
+  border-top: 1px solid rgb(0, 0, 139);
+  margin: 2rem auto;
+}
+.highlight {
+  animation: flash 1s ease;
+  box-shadow: 0 0 20px 5px #00b4d8;
+}
+
+@keyframes flash {
+  0%   { box-shadow: 0 0 0 0 rgba(0,180,216, 0.7); }
+  50%  { box-shadow: 0 0 25px 10px rgba(0,180,216, 0.7); }
+  100% { box-shadow: 0 0 0 0 rgba(0,180,216, 0); }
+}
+
+.quote {
+  font-style: italic;
+  color: #555;
+  margin-top: 2rem;
+}
+
+.glass-block {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  color: white;
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+.login-box {
+  margin: 2rem auto;
+  max-width: 300px;
+}
+.login-box input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+}
+.login-box button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #00b4d8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.user-info {
+  color: white;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.user-info button {
+  margin-left: 10px;
+  background: #0077b6;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* Универсальные стили */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Адаптация под телефоны */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
