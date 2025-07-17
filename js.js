@@ -1,7 +1,3 @@
-// ========== Локальное хранилище пользователей ==========
-if (!localStorage.getItem('users')) {
-  localStorage.setItem('users', JSON.stringify([]));
-}
 
 // ========== Массив машин ==========
 const cars = [  { name: "Buick Electra 225", image: "https://i.postimg.cc/PN0yGv62/IMG-20250621-141219.jpg", details:"The Buick Electra 225 was a full-size luxury car produced by Buick from 1959 to 1990. Known for its length, comfort, and smooth V8 engine, it became a symbol of American luxury in the 1960s and 70s. The 225 refers to the car's overall length of 225 inches — nearly 5.7 meters!" },
@@ -74,19 +70,6 @@ const pages = {
       <p>These cars aren’t just metal and wheels — they represent moments, feelings, even dreams. That’s why we made this site: to honor a hobby, share a bit of our world, and inspire others to notice the beauty in the ordinary.</p>
       <blockquote class="quote">“Every car has a story. Every photo is a piece of history.”</blockquote>` // (оставь свой about-текст)
   },
-  login: {
-    title: 'Login or Register',
-    text: `
-      <div class="login-box">
-        <h3>Login or Register</h3>
-        <input type="text" id="username" placeholder="Username" />
-        <input type="password" id="password" placeholder="Password" />
-        <button id="loginBtn">Log in</button>
-        <button id="registerBtn">Register</button>
-        <p id="loginStatus"></p>
-      </div>
-    `
-  }
 };
 
 // ========== Навигация ==========
@@ -163,50 +146,6 @@ function showPage(page) {
 
     renderCards();
   }
-
-  // === Логин ===
-  if (page === 'login') {
-    const loginBtn = document.getElementById('loginBtn');
-    const registerBtn = document.getElementById('registerBtn');
-    const status = document.getElementById('loginStatus');
-
-    loginBtn.onclick = () => {
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value;
-      const users = JSON.parse(localStorage.getItem('users')) || [];
-      const user = users.find(u => u.name === username && u.password === password);
-
-      if (user) {
-        localStorage.setItem('currentUser', username);
-        status.textContent = `Welcome, ${username}!`;
-        showPage('home');
-      } else {
-        status.textContent = "Incorrect username or password.";
-      }
-    };
-
-    registerBtn.onclick = () => {
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value;
-
-      if (!username || !password) {
-        status.textContent = "Please fill in both fields.";
-        return;
-      }
-
-      let users = JSON.parse(localStorage.getItem('users')) || [];
-      if (users.find(u => u.name === username)) {
-        status.textContent = "Username already exists.";
-        return;
-      }
-
-      users.push({ name: username, password: password });
-      localStorage.setItem('users', JSON.stringify(users));
-      status.textContent = "Registered! You can now log in.";
-    };
-  }
-}
-
 // ========== Детали машины ==========
 function showCarDetails(car) {
   pages.details = {
