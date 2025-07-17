@@ -35,7 +35,11 @@ const cars = [  { name: "Buick Electra 225", image: "https://i.postimg.cc/PN0yGv
   { name: "Fiat 124 Sport Spider", image: "https://i.postimg.cc/ygPsxFz4/d868d05e-de95-4e1e-9ce6-57483c06b927.png", details:"The Fiat 124 Sport Spider is a charming Italian roadster combining elegant design with spirited performance. Lightweight and agile, it offers an engaging driving experience wrapped in classic 1960s style." },
   { name: "Citroën Méhari", image: "https://i.postimg.cc/gXRLTtRy/06ffdc88-451e-4011-8141-ad44cddcbfc6.png", details:"The Citroën Méhari is a quirky, lightweight French utility vehicle with a distinctive plastic body and off-road capability. Designed for fun and practicality, it became a symbol of carefree outdoor adventures and innovative simplicity." },
   { name: "NG TC V8", image: "https://i.postimg.cc/Bj7GrqBs/1a635d4b-203c-4f97-adde-b9eff86cc4f9.png", details:"The NG TC V8 is a lightweight British kit car that perfectly blends vintage roadster styling with powerful Rover V8 engines. Known for its nimble handling and thrilling performance, it offers a pure and engaging driving experience for enthusiasts." },
-  { name: "Volkswagen Beetle", image: "https://i.postimg.cc/xqv018XK/3fce08b2-77f6-49b7-bedb-0b23ff3102f2.png", details:"The Volkswagen Beetle is an iconic compact car known for its distinctive rounded design and timeless appeal. Combining classic charm with modern engineering, it delivers a unique driving experience cherished worldwide." }];
+  { name: "Volkswagen Beetle", image: "https://i.postimg.cc/xqv018XK/3fce08b2-77f6-49b7-bedb-0b23ff3102f2.png", details:"The Volkswagen Beetle is an iconic compact car known for its distinctive rounded design and timeless appeal. Combining classic charm with modern engineering, it delivers a unique driving experience cherished worldwide." },
+  { name: "Jeep Cherokee XJ", image: "https://i.postimg.cc/zLnnVffs/bd720ec0-7f9f-4642-a2a8-da9f57b93523.png", details:"This is a classic Jeep Cherokee XJ, known for its boxy design and off-road capabilities. It's a rugged and reliable SUV that became iconic in the late '90s." },
+  { name: "Porsche Taycan", image: "https://i.postimg.cc/w74KGq9Y/6821ad81-9023-4780-a7da-f0ec3d0a557f.png", details:"The Porsche Taycan is a high-performance electric car that combines luxury with cutting-edge technology. Its sleek design and powerful acceleration make it one of the most exciting EVs on the road today." }];
+              
+
 
 // ========== HTML-структура ==========
 const h1 = document.createElement('h1');
