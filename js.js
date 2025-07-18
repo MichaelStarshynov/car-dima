@@ -34,7 +34,7 @@ const cars = [  { name: "Buick Electra 225", image: "https://i.postimg.cc/PN0yGv
   { name: "Jeep Cherokee XJ", image: "https://i.postimg.cc/zLnnVffs/bd720ec0-7f9f-4642-a2a8-da9f57b93523.png", details:"This is a classic Jeep Cherokee XJ, known for its boxy design and off-road capabilities. It's a rugged and reliable SUV that became iconic in the late '90s." },
   { name: "Porsche Taycan", image: "https://i.postimg.cc/w74KGq9Y/6821ad81-9023-4780-a7da-f0ec3d0a557f.png", details:"The Porsche Taycan is a high-performance electric car that combines luxury with cutting-edge technology. Its sleek design and powerful acceleration make it one of the most exciting EVs on the road today." }];
               
-
+console.log(length: cars);
 
 // ========== HTML-структура ==========
 const h1 = document.createElement('h1');
