@@ -1,9 +1,4 @@
 
-// ========== Локальное хранилище пользователей ==========
-if (!localStorage.getItem('users')) {
-  localStorage.setItem('users', JSON.stringify([]));
-}
-
 // ========== Массив машин ==========
 const cars = [  { name: "Buick Electra 225", image: "https://i.postimg.cc/PN0yGv62/IMG-20250621-141219.jpg", details:"The Buick Electra 225 was a full-size luxury car produced by Buick from 1959 to 1990. Known for its length, comfort, and smooth V8 engine, it became a symbol of American luxury in the 1960s and 70s. The 225 refers to the car's overall length of 225 inches — nearly 5.7 meters!" },
   { name: "Chevrolet Task Force", image: "https://i.postimg.cc/p9748wsJ/482b4006-c4ef-4c63-8e9d-45ae40223029-2.png", details:"The Chevrolet Task Force was a series of pickup trucks produced from 1955 to 1959. It followed the Advance Design series and introduced more modern styling and features for its time." },
@@ -58,7 +53,7 @@ document.body.appendChild(content);
 const pages = {
   home: {
     title: 'Welcome!',
-    text: `<h3>Hello! Welcome to Dima’s Car Collection — a site with real car photos from a unique private collection.</h3>
+    text: `<h3>Hello! Welcome to Snapcar — a site with real car photos from a unique private collection.</h3>
       <hr>
       <blockquote class="quote">“Every car has a story. Every photo captures a piece of history.”</blockquote>
       <br>
@@ -77,7 +72,7 @@ const pages = {
     title: 'About',
     text: `<p>Hello! I'm Michael, 13 years old, and I created this site to show my little brother's growing car photo collection.</p>
       <p>These cars aren’t just metal and wheels — they represent moments, feelings, even dreams. That’s why we made this site: to honor a hobby, share a bit of our world, and inspire others to notice the beauty in the ordinary.</p>
-      <blockquote class="quote">“Every car has a story. Every photo is a piece of history.”</blockquote>` // (оставь свой about-текст)
+      <blockquote class="quote">“Every car has a story. Every photo is a piece of history.”</blockquote>` 
   },
 };
 
