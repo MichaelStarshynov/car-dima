@@ -43,7 +43,7 @@ const cars = [  { name: "Buick Electra 225", image: "https://i.postimg.cc/PN0yGv
 
 // ========== HTML-структура ==========
 const h1 = document.createElement('h1');
-h1.textContent = "Dima's Car Collection";
+h1.textContent = "SnapCar";
 document.body.appendChild(h1);
 
 const nav = document.createElement('div');
