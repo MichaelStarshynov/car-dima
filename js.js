@@ -79,19 +79,6 @@ const pages = {
       <p>These cars aren’t just metal and wheels — they represent moments, feelings, even dreams. That’s why we made this site: to honor a hobby, share a bit of our world, and inspire others to notice the beauty in the ordinary.</p>
       <blockquote class="quote">“Every car has a story. Every photo is a piece of history.”</blockquote>` // (оставь свой about-текст)
   },
-  login: {
-    title: 'Login or Register',
-    text: `
-      <div class="login-box">
-        <h3>Login or Register</h3>
-        <input type="text" id="username" placeholder="Username" />
-        <input type="password" id="password" placeholder="Password" />
-        <button id="loginBtn">Log in</button>
-        <button id="registerBtn">Register</button>
-        <p id="loginStatus"></p>
-      </div>
-    `
-  }
 };
 
 // ========== Навигация ==========
