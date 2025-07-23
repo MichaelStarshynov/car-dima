@@ -107,7 +107,6 @@ for (let key in pages) {
   nav.appendChild(btn);
 }
 
-// ========== Показ страницы ==========
 function showPage(page) {
   content.innerHTML = '';
 
@@ -118,7 +117,7 @@ function showPage(page) {
   const div = document.createElement('div');
   div.innerHTML = pages[page].text;
   content.appendChild(div);
-}
+
   // === Галерея ===
   if (page === 'gallery') {
     const searchInput = document.createElement('input');
@@ -172,7 +171,7 @@ function showPage(page) {
 
     renderCards();
   }
-
+}
 
 // ========== Детали машины ==========
 function showCarDetails(car) {
