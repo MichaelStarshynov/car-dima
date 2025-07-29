@@ -257,9 +257,16 @@ function styleExhibitionButton(btn) {
   };
 }
 
-function showExhibitionYearButtons() {
+function showExhibitionButtons() {
   buttonContainer.innerHTML = '';
   viewContainer.innerHTML = '';
+
+  const exhibitions = [...new Set(cards.map(card => card.exhibition))]; // Перенесено сюда
+
+  exhibitions.forEach(place => {
+    // остальной код без изменений
+  });
+}
 
   const combos = [...new Set(cards.map(c => `${c.exhibition}|||${c.datum}`))];
 
