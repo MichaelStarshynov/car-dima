@@ -220,61 +220,190 @@ function showPage(page) {
 
 // === Выставки ===
 
-// exhibition.js
-import { cards } from './cards.js';
+const buttonContainer = document.createElement('div');
+buttonContainer.style.cssText = `
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+`;
+content.appendChild(buttonContainer);
 
-const buttonContainer = document.getElementById('buttonContainer');
-const viewContainer = document.getElementById('viewContainer');
+const viewContainer = document.createElement('div');
+content.appendChild(viewContainer);
 
 function showExhibitionButtons() {
   buttonContainer.innerHTML = '';
   viewContainer.innerHTML = '';
 
-  const exhibitions = [...new Set(cards.map(card => card.exhibition))];
+  const exhibitions = [...new Set(cards.map(card => card.exhibition).filter(Boolean))];
 
   exhibitions.forEach(place => {
+    const exhibitionDiv = document.createElement('div');
+    exhibitionDiv.style.cssText = `
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      width: 280px;
+    `;
+    exhibitionDiv.onmouseenter = () => exhibitionDiv.style.transform = 'scale(1.03)';
+    exhibitionDiv.onmouseleave = () => exhibitionDiv.style.transform = 'scale(1)';
+
+    const cardForPhoto = cards.find(card => card.exhibition === place && card.image);
+    const img = document.createElement('img');
+    img.src = cardForPhoto ? cardForPhoto.image : '';
+    img.alt = place;
+    img.style.cssText = `
+      width: 260px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    `;
+    exhibitionDiv.appendChild(img);
+
     const btn = document.createElement('button');
     btn.textContent = place;
-    btn.addEventListener('click', () => showYearButtons(place));
-    buttonContainer.appendChild(btn);
+    styleExhibitionButton(btn);
+    btn.style.width = '100%';
+    btn.onclick = () => showExhibitionYears(place);
+    exhibitionDiv.appendChild(btn);
+
+    buttonContainer.appendChild(exhibitionDiv);
   });
 }
 
-function showYearButtons(exhibitionName) {
+function showExhibitionYears(exhibitionName) {
+  buttonContainer.innerHTML = '';
   viewContainer.innerHTML = '';
 
+  const title = document.createElement('h2');
+  title.textContent = exhibitionName;
+  title.style.textAlign = 'center';
+  title.style.marginBottom = '15px';
+  viewContainer.appendChild(title);
+
+  const yearsContainer = document.createElement('div');
+  yearsContainer.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  `;
+  viewContainer.appendChild(yearsContainer);
+
+  const backBtn = document.createElement('button');
+  backBtn.textContent = 'Back';
+  styleExhibitionButton(backBtn);
+  backBtn.onclick = () => showExhibitionButtons();
+  yearsContainer.appendChild(backBtn);
+
   const years = [...new Set(cards
-    .filter(card => card.exhibition === exhibitionName && card.image)
+    .filter(card => card.exhibition === exhibitionName && card.datum)
     .map(card => card.datum))];
 
   years.forEach(year => {
     const yearBtn = document.createElement('button');
     yearBtn.textContent = year;
-    yearBtn.addEventListener('click', () => showCards(exhibitionName, year));
-    viewContainer.appendChild(yearBtn);
+    styleExhibitionButton(yearBtn);
+    yearBtn.onclick = () => showPhotosByYear(exhibitionName, year);
+    yearsContainer.appendChild(yearBtn);
   });
 }
 
-function showCards(exhibitionName, year) {
+function showPhotosByYear(exhibitionName, year) {
   viewContainer.innerHTML = '';
 
-  const filtered = cards.filter(card => 
-    card.exhibition === exhibitionName &&
-    card.datum === year &&
-    card.image
-  );
+  const title = document.createElement('h2');
+  title.textContent = `${exhibitionName} — ${year}`;
+  title.style.textAlign = 'center';
+  title.style.marginBottom = '15px';
+  viewContainer.appendChild(title);
 
-  filtered.forEach(card => {
-    const cardDiv = document.createElement('div');
-    const img = document.createElement('img');
-    img.src = card.image;
-    cardDiv.appendChild(img);
-    viewContainer.appendChild(cardDiv);
+  const backBtn = document.createElement('button');
+  backBtn.textContent = 'Back';
+  styleExhibitionButton(backBtn);
+  backBtn.onclick = () => showExhibitionYears(exhibitionName);
+  viewContainer.appendChild(backBtn);
+
+  const galleryContainer = document.createElement('div');
+  galleryContainer.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+  `;
+
+  cards.forEach(card => {
+    if (card.exhibition === exhibitionName && card.datum === year && card.image) {
+      const imgDiv = document.createElement('div');
+      imgDiv.style.cssText = `
+        padding: 10px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease;
+      `;
+      imgDiv.onmouseenter = () => imgDiv.style.transform = 'scale(1.03)';
+      imgDiv.onmouseleave = () => imgDiv.style.transform = 'scale(1)';
+
+      const img = document.createElement('img');
+      img.src = card.image;
+      img.alt = card.name || '';
+      img.style.cssText = `
+        width: 250px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 6px;
+        display: block;
+      `;
+
+      imgDiv.appendChild(img);
+      galleryContainer.appendChild(imgDiv);
+    }
   });
+
+  viewContainer.appendChild(galleryContainer);
 }
 
-showExhibitionButtons();
+function styleExhibitionButton(btn) {
+  btn.style.cssText = `
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(to right, #00bfff, #00c6ff);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3);
+    margin: 10px 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  `;
 
+  btn.onmouseenter = () => {
+    btn.style.transform = 'scale(1.05)';
+    btn.style.boxShadow = '0 6px 18px rgba(0, 191, 255, 0.4)';
+  };
+  btn.onmouseleave = () => {
+    btn.style.transform = 'scale(1)';
+    btn.style.boxShadow = '0 4px 12px rgba(0, 191, 255, 0.3)';
+  };
+}
+
+if (page === 'exhibition') {
+  content.appendChild(buttonContainer);
+  content.appendChild(viewContainer);
+  showExhibitionButtons();
+}
 
 
   // === Галерея ===
