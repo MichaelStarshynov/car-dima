@@ -220,155 +220,60 @@ function showPage(page) {
 
 // === Выставки ===
 
-const buttonContainer = document.createElement('div');
-buttonContainer.style.cssText = `
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px auto;
-`;
-content.appendChild(buttonContainer);
+// exhibition.js
+import { cards } from './cards.js';
 
-const viewContainer = document.createElement('div');
-content.appendChild(viewContainer);
-
-function styleExhibitionButton(btn) {
-  btn.style.cssText = `
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    background: linear-gradient(to right, #00bfff, #00c6ff);
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3);
-    margin: 10px 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  `;
-  btn.onmouseenter = () => {
-    btn.style.transform = 'scale(1.05)';
-    btn.style.boxShadow = '0 6px 18px rgba(0, 191, 255, 0.4)';
-  };
-  btn.onmouseleave = () => {
-    btn.style.transform = 'scale(1)';
-    btn.style.boxShadow = '0 4px 12px rgba(0, 191, 255, 0.3)';
-  };
-}
+const buttonContainer = document.getElementById('buttonContainer');
+const viewContainer = document.getElementById('viewContainer');
 
 function showExhibitionButtons() {
   buttonContainer.innerHTML = '';
   viewContainer.innerHTML = '';
 
-  const exhibitions = [...new Set(cards.map(card => card.exhibition))]; // Перенесено сюда
+  const exhibitions = [...new Set(cards.map(card => card.exhibition))];
 
   exhibitions.forEach(place => {
-    // остальной код без изменений
-  });
-}
-
-  const combos = [...new Set(cards.map(c => `${c.exhibition}|||${c.datum}`))];
-
-  combos.forEach(pair => {
-    const [exhi, year] = pair.split('|||');
-    const card = cards.find(c => c.exhibition === exhi && c.datum === year);
-
-    const div = document.createElement('div');
-    div.style.cssText = `
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 280px;
-      background: #f9f9f9;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 10px;
-      transition: transform 0.2s;
-    `;
-    div.onmouseenter = () => div.style.transform = 'scale(1.03)';
-    div.onmouseleave = () => div.style.transform = 'scale(1)';
-
-    const img = document.createElement('img');
-    img.src = card.image;
-    img.alt = `${exhi} ${year}`;
-    img.style.cssText = `
-      width: 260px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    `;
-    div.appendChild(img);
-
     const btn = document.createElement('button');
-    btn.textContent = `${exhi} ${year}`;
-    styleExhibitionButton(btn);
-    btn.style.width = '100%';
-    btn.onclick = () => showPhotosByYear(exhi, year);
-    div.appendChild(btn);
-
-    buttonContainer.appendChild(div);
+    btn.textContent = place;
+    btn.addEventListener('click', () => showYearButtons(place));
+    buttonContainer.appendChild(btn);
   });
 }
 
-function showPhotosByYear(exhi, year) {
-  buttonContainer.innerHTML = '';
+function showYearButtons(exhibitionName) {
   viewContainer.innerHTML = '';
 
-  const title = document.createElement('h2');
-  title.textContent = `${exhi} — ${year}`;
-  title.style.textAlign = 'center';
-  title.style.marginBottom = '15px';
-  viewContainer.appendChild(title);
+  const years = [...new Set(cards
+    .filter(card => card.exhibition === exhibitionName && card.image)
+    .map(card => card.datum))];
 
-  const back = document.createElement('button');
-  back.textContent = 'Back';
-  styleExhibitionButton(back);
-  back.onclick = showExhibitionYearButtons;
-  viewContainer.appendChild(back);
-
-  const gallery = document.createElement('div');
-  gallery.style.cssText = `
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px 0;
-  `;
-  viewContainer.appendChild(gallery);
-
-  cards
-    .filter(c => c.exhibition === exhi && c.datum === year)
-    .forEach(c => {
-      const d = document.createElement('div');
-      d.style.cssText = `
-        padding: 10px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: transform 0.2s;
-      `;
-      d.onmouseenter = () => d.style.transform = 'scale(1.03)';
-      d.onmouseleave = () => d.style.transform = 'scale(1)';
-
-      const i = document.createElement('img');
-      i.src = c.image;
-      i.alt = `${exhi} photo`;
-      i.style.cssText = `
-        width: 250px;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 6px;
-      `;
-      d.appendChild(i);
-      gallery.appendChild(d);
-    });
+  years.forEach(year => {
+    const yearBtn = document.createElement('button');
+    yearBtn.textContent = year;
+    yearBtn.addEventListener('click', () => showCards(exhibitionName, year));
+    viewContainer.appendChild(yearBtn);
+  });
 }
 
-if (typeof page !== 'undefined' && page === 'exhibition') {
-  showExhibitionYearButtons();
+function showCards(exhibitionName, year) {
+  viewContainer.innerHTML = '';
+
+  const filtered = cards.filter(card => 
+    card.exhibition === exhibitionName &&
+    card.datum === year &&
+    card.image
+  );
+
+  filtered.forEach(card => {
+    const cardDiv = document.createElement('div');
+    const img = document.createElement('img');
+    img.src = card.image;
+    cardDiv.appendChild(img);
+    viewContainer.appendChild(cardDiv);
+  });
 }
+
+showExhibitionButtons();
 
 
 
