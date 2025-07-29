@@ -30,31 +30,11 @@ const cars = [  { name: "Buick Electra 225", image: "https://i.postimg.cc/PN0yGv
   { name: "Citroën Méhari", image: "https://i.postimg.cc/gXRLTtRy/06ffdc88-451e-4011-8141-ad44cddcbfc6.png", details:"The Citroën Méhari is a quirky, lightweight French utility vehicle with a distinctive plastic body and off-road capability. Designed for fun and practicality, it became a symbol of carefree outdoor adventures and innovative simplicity." },
   { name: "NG TC V8", image: "https://i.postimg.cc/Bj7GrqBs/1a635d4b-203c-4f97-adde-b9eff86cc4f9.png", details:"The NG TC V8 is a lightweight British kit car that perfectly blends vintage roadster styling with powerful Rover V8 engines. Known for its nimble handling and thrilling performance, it offers a pure and engaging driving experience for enthusiasts." },
   { name: "Volkswagen Beetle", image: "https://i.postimg.cc/xqv018XK/3fce08b2-77f6-49b7-bedb-0b23ff3102f2.png", details:"The Volkswagen Beetle is an iconic compact car known for its distinctive rounded design and timeless appeal. Combining classic charm with modern engineering, it delivers a unique driving experience cherished worldwide." },
-  { name: "Jeep Cherokee XJ", image: "https://i.postimg.cc/zLnnVffs/bd720ec0-7f9f-4642-a2a8-da9f57b93523.png", details:"This is a classic Jeep Cherokee XJ, known for its boxy design and off-road capabilities. It's a rugged and reliable SUV that became iconic in the late '90s." },
-
-  
-  //{ name: "Porsche Taycan", image: "https://i.postimg.cc/w74KGq9Y/6821ad81-9023-4780-a7da-f0ec3d0a557f.png", details:"The Porsche Taycan is a high-performance electric car that combines luxury with cutting-edge technology. Its sleek design and powerful acceleration make it one of the most exciting EVs on the road today." },//
-  //{ name: "Opel Blitz", image: "https://i.postimg.cc/jdTR2nCQ/20220728-111551.jpg", details:"This is an Opel Blitz from the 1930s, a legendary German pickup truck with wooden side panels. It was widely used for transportation in both civilian and military sectors." },//
-  //{ name: "American LaFrance", image: "https://i.postimg.cc/WbmfnXjC/20220728-120245.jpg", details:"This is an early 20th-century American LaFrance fire truck, famous for its iconic red design and impressive equipment. It was used to fight fires in big cities and is now a symbol of historic firefighting technology." },//
+  { name: "Jeep Cherokee XJ", image: "https://i.postimg.cc/zLnnVffs/bd720ec0-7f9f-4642-a2a8-da9f57b93523.png", details:"This is a classic Jeep Cherokee XJ, known for its boxy design and off-road capabilities. It's a rugged and reliable SUV that became iconic in the late '90s." }
+  { name: "Porsche Taycan", image: "https://i.postimg.cc/w74KGq9Y/6821ad81-9023-4780-a7da-f0ec3d0a557f.png", details:"The Porsche Taycan is a high-performance electric car that combines luxury with cutting-edge technology. Its sleek design and powerful acceleration make it one of the most exciting EVs on the road today." },//
+  { name: "Opel Blitz", image: "https://i.postimg.cc/jdTR2nCQ/20220728-111551.jpg", details:"This is an Opel Blitz from the 1930s, a legendary German pickup truck with wooden side panels. It was widely used for transportation in both civilian and military sectors." },
+  { name: "American LaFrance", image: "https://i.postimg.cc/WbmfnXjC/20220728-120245.jpg", details:"This is an early 20th-century American LaFrance fire truck, famous for its iconic red design and impressive equipment. It was used to fight fires in big cities and is now a symbol of historic firefighting technology." },//
  
 
 ];
       
-const car = [
-  {image: "https://i.postimg.cc/Dy3MQ3d9/image.png", place: "Castricum"},
-  {image: "https://i.postimg.cc/fL4c4DLZ/image.png", place: "Castricum"},
-  {image: "https://i.postimg.cc/T1t5P6RK/image.png", place: "Castricum"},
-  {image: "https://i.postimg.cc/xCx9JTzV/image.png", place: "Castricum"},
-  {image: "https://i.postimg.cc/Qd2mDp4R/image.png", place: "Castricum"},
-  {image: "https://i.postimg.cc/Pr3hSq3L/image.png", place: "Louwman museum"},
-  {image: "https://i.postimg.cc/qRRxXjz6/image.png", place: "Louwman museum"},
-  {image: "https://i.postimg.cc/JzrxzrMQ/image.png", place: "Street"},
-  {image: "https://i.postimg.cc/02xdVkMq/image.png", place: "Street"},
-  {image: "https://i.postimg.cc/FRykSSxk/image.png", place: "Street"},
-  {image: "https://i.postimg.cc/1tB5PrHB/image.png", place: "Street"},
-  {image: "https://i.postimg.cc/3Jshsqh7/image.png", place: "Street"},
-  {image: "https://i.postimg.cc/c1V4WC7V/image.png", place: "Street"},
-  {image: "https://i.postimg.cc/nrY3zM5n/image.png ", place: "Street"},
-
-  
-]
