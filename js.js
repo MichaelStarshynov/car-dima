@@ -228,10 +228,8 @@ buttonContainer.style.cssText = `
   justify-content: center;
   margin: 20px auto;
 `;
-content.appendChild(buttonContainer);
 
 const viewContainer = document.createElement('div');
-content.appendChild(viewContainer);
 
 function showExhibitionButtons() {
   buttonContainer.innerHTML = '';
